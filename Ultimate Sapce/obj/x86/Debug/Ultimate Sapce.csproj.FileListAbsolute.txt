@@ -1,0 +1,52 @@
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\obj\x86\Debug\Ultimate Sapce.csproj.CoreCompileInputs.cache
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\Ultimate Sapce.exe
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\Ultimate Sapce.pdb
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\MonoGame.Framework.dll
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\SharpDX.dll
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\SharpDX.XInput.dll
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\MonoGame.Framework.xml
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\SharpDX.xml
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\SharpDX.XInput.xml
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\obj\x86\Debug\Ultimate Sapce.exe
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\obj\x86\Debug\Ultimate Sapce.pdb
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\Content\MenuImages\SapceUltimate.xnb
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\Content\MenuImages\Starbackground.xnb
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\obj\x86\Debug\Ultimate Sapce.csprojResolveAssemblyReference.cache
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\Content\MenuImages\Buttons\StartH.xnb
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\Content\MenuImages\Buttons\StartUH.xnb
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\Content\Sprites\Base Ship.xnb
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\Content\Sprites\Wall.xnb
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\Content\Sprites\Wall2.xnb
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\Content\MenuImages\Starbackground2.xnb
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\Content\Sprites\hpBorder.xnb
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\Content\Sprites\hpBorder2.xnb
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\Content\Sprites\asteroid1.xnb
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\Content\myFont.xnb
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\Content\Sprites\bullet.xnb
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\Content\Sprites\cannon.xnb
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\Content\Sprites\enemyBullet.xnb
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\Content\Sprites\HP.xnb
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\Content\Sprites\Pixel.xnb
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\Content\Music\Solar Empress.wma
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\Content\Music\Solar Empress.xnb
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\Content\Sprites\zoomer.xnb
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\Content\Animation\ShipDeathOG.xnb
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\Content\Animation\SmileyWalk.xnb
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\Content\Animation\testSheet.xnb
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\Content\Animation\PixelExplosion.xnb
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\Content\SFX\ShipExplosion.wma
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\Content\SFX\ShipExplosion.xnb
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\Content\Animation\ExplosionSheet1.xnb
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\Content\Animation\ExplosionSheet2.xnb

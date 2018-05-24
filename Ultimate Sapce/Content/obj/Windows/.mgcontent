@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/MenuImages/SapceUltimate.png</File>
+    <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/MenuImages/Starbackground.png</File>
+    <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/MenuImages/Buttons/StartH.png</File>
+    <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/MenuImages/Buttons/StartUH.png</File>
+    <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/Sprites/Base Ship.png</File>
+    <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/Sprites/Wall.png</File>
+    <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/Sprites/Wall2.png</File>
+    <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/MenuImages/Starbackground2.png</File>
+    <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/Sprites/hpBorder.png</File>
+    <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/Sprites/hpBorder2.png</File>
+    <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/Sprites/asteroid1.png</File>
+    <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/myFont.spritefont</File>
+    <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/Sprites/bullet.png</File>
+    <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/Sprites/cannon.png</File>
+    <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/Sprites/enemyBullet.png</File>
+    <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/Sprites/HP.png</File>
+    <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/Sprites/Pixel.png</File>
+    <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/Music/Solar Empress.mp3</File>
+    <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/Sprites/zoomer.png</File>
+    <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/Animation/ShipDeathOG.png</File>
+    <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/Animation/SmileyWalk.png</File>
+    <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/Animation/testSheet.png</File>
+    <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/Animation/PixelExplosion.png</File>
+    <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/SFX/ShipExplosion.mp3</File>
+    <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/Animation/ExplosionSheet1.png</File>
+    <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/Animation/ExplosionSheet2.png</File>
+  </SourceFiles>
+</SourceFileCollection>

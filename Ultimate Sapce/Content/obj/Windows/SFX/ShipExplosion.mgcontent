@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SourceFile>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/SFX/ShipExplosion.mp3</SourceFile>
+  <SourceTime>2018-05-06T14:38:06.6660734-05:00</SourceTime>
+  <DestFile>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/bin/Windows/SFX/ShipExplosion.xnb</DestFile>
+  <DestTime>2018-05-06T14:42:25.2880127-05:00</DestTime>
+  <Importer>Mp3Importer</Importer>
+  <ImporterTime>2017-03-01T09:05:36-06:00</ImporterTime>
+  <Processor>SoundEffectProcessor</Processor>
+  <ProcessorTime>2017-03-01T09:05:36-06:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>
