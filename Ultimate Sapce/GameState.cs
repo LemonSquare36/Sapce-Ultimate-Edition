@@ -108,7 +108,7 @@ namespace Ultimate_Sapce
             switch (CurrentScreen.getNextScreen())
             {
                 case "start":
-                    CurrentScreen = mainGame;
+                        CurrentScreen = mainGame;
                     break;
                 case "main":
                     CurrentScreen = mainMenu;
