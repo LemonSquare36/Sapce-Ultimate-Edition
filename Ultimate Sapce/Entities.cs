@@ -22,11 +22,12 @@ namespace Ultimate_Sapce
         Stopwatch timer = new Stopwatch();
         int time;
        // bool elapsed = true;
-        bool canShoot = false, dead = false;
-        Vector2 Path;
+        bool canShoot = false, dead = false, deathsoundplayed = false;
+        Vector2 Path, offset;
         string shapetype;
         float accelerate = 0;
         SpriteSheet Deathsheet;
+        SoundManager deathsound;
 
         public int AddHP(int newHP)
         {
@@ -50,7 +51,7 @@ namespace Ultimate_Sapce
         }
         public Entities(List<Vector2> numbers) : base(numbers)
         {
-           
+            deathsound = new SoundManager();
         }
         /// <param name="X">Placement X value</param>
         /// <param name="Y">Placement Y value</param>
@@ -65,9 +66,11 @@ namespace Ultimate_Sapce
                 {
                     case "cannon":
                     time = 1200;
-                        HP = 3;
-                        timer.Start();
-                        Deathsheet = new SpriteSheet("ExplosionSheet1", 1, 32);
+                    HP = 3;
+                    timer.Start();
+                    deathsound.Load("ShipExplosion", true);
+                    Deathsheet = new SpriteSheet("ExplosionSheet1", 1, 32);
+                    offset = new Vector2(192, 144);
                     break;
                     case "zoomer":
                         HP = 2;
@@ -143,7 +146,19 @@ namespace Ultimate_Sapce
         public void DeathAnimation(SpriteBatch spriteBatch)
         {
             Deathsheet.Update(2, false);
-            Deathsheet.Draw(spriteBatch, Placement, 2);
+            Deathsheet.Draw(spriteBatch, Placement - offset, 10);
+        }
+        public void PlayDeathSound()
+        {
+            if (!deathsoundplayed)
+            {
+                deathsound.Play();
+                deathsoundplayed = true;
+            }
+        }
+        public bool getDeathAniDone()
+        {
+            return Deathsheet.getDone();
         }
     }
 }

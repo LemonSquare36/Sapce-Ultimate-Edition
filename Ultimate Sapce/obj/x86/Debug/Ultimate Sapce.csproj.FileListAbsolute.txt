@@ -50,3 +50,10 @@ C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x8
 C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\Content\SFX\ShipExplosion.xnb
 C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\Content\Animation\ExplosionSheet1.xnb
 C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\Content\Animation\ExplosionSheet2.xnb
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\Content\Sprites\Wall\botwall1.xnb
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\Content\Sprites\Wall\botwall2.xnb
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\Content\Sprites\Wall\topwall1.xnb
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\Content\Sprites\Wall\topwall2.xnb
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\Content\Sprites\Wall\Wall.xnb
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\Content\Sprites\Wall\Wall2.xnb
+C:\Users\Joshua Glover\source\repos\Ultimate_Sapce\Ultimate Sapce\bin\Windows\x86\Debug\Content\Sprites\rocketcounter.xnb

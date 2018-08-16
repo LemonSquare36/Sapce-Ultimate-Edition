@@ -9,8 +9,6 @@
     <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/MenuImages/Buttons/StartH.png</File>
     <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/MenuImages/Buttons/StartUH.png</File>
     <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/Sprites/Base Ship.png</File>
-    <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/Sprites/Wall.png</File>
-    <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/Sprites/Wall2.png</File>
     <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/MenuImages/Starbackground2.png</File>
     <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/Sprites/hpBorder.png</File>
     <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/Sprites/hpBorder2.png</File>
@@ -30,5 +28,12 @@
     <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/SFX/ShipExplosion.mp3</File>
     <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/Animation/ExplosionSheet1.png</File>
     <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/Animation/ExplosionSheet2.png</File>
+    <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/Sprites/Wall/botwall1.png</File>
+    <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/Sprites/Wall/botwall2.png</File>
+    <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/Sprites/Wall/topwall1.png</File>
+    <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/Sprites/Wall/topwall2.png</File>
+    <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/Sprites/Wall/Wall.png</File>
+    <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/Sprites/Wall/Wall2.png</File>
+    <File>C:/Users/Joshua Glover/source/repos/Ultimate_Sapce/Ultimate Sapce/Content/Sprites/rocketcounter.png</File>
   </SourceFiles>
 </SourceFileCollection>

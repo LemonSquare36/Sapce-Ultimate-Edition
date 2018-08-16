@@ -19,16 +19,15 @@ namespace Ultimate_Sapce
 {
     class IntoTheFray : ScreenManager
     {
-        Texture2D backTex, backTex2, backTex3, backTex4, HPpix, hpBorder, hpBorder2, pixel;
+        Texture2D backTex, backTex2, backTex3, backTex4;
         PlayerShip Ship;
         Vector2 position, position2, position3, position4;
-        Rectangle HP, staticHP, shield;
         SpriteFont font;
-        Polygons wall1, wall2, wall3, wall4;
+        Polygons topwall1, topwall2, topwall3, topwall4, topwall5, topwall6, botwall1, botwall2, botwall3, botwall4, botwall5, botwall6;
         List<Polygons> wallList, asteroidList;
         List<Entities> cannonList, enemyBulletList, zoomerList, bulletList;
         Random rand;
-        int wallPath1, wallPath2, wallMove1, wallMove2, score, finalscore, shieldwidth;
+        int wallPath1, wallPath2, wallMove1, wallMove2;
         bool done = true; bool done1, done2;
         Stopwatch asteroidTimer = new Stopwatch(), cannonTimer = new Stopwatch(), zoomerTimer = new Stopwatch();
         KeyboardState oldState;
@@ -41,7 +40,6 @@ namespace Ultimate_Sapce
             position3 = new Vector2(-200, 100);
             position4 = new Vector2(1720, -100);
             rand = new Random();
-            score = 0;
             Music = new SoundManager();
             done = true; done1 = false; done2 = false;
 
@@ -71,29 +69,38 @@ namespace Ultimate_Sapce
             backTex2 = Main.GameContent.Load<Texture2D>("MenuImages/Starbackground");
             backTex3 = Main.GameContent.Load<Texture2D>("MenuImages/Starbackground2");
             backTex4 = Main.GameContent.Load<Texture2D>("MenuImages/Starbackground2");
-            HPpix = Main.GameContent.Load<Texture2D>("Sprites/HP");
-            pixel = Main.GameContent.Load<Texture2D>("Sprites/Pixel");
-            hpBorder = Main.GameContent.Load<Texture2D>("Sprites/hpBorder");
-            hpBorder2 = Main.GameContent.Load<Texture2D>("Sprites/hpBorder2");
 
             MakeShapes();
             Ship.LoadContent(200, 540, "Base Ship");
-            wall1.LoadContent(0, 200, "Wall");
-            wall2.LoadContent(1920, 200, "Wall");
-            wall3.LoadContent(0, 800, "Wall2");
-            wall4.LoadContent(1920, 800, "Wall2");
-
+            #region wallload
+            topwall1.LoadContent(0, 200, "Wall/topwall1");
+            topwall2.LoadContent(480, 200, "Wall/topwall2");
+            topwall3.LoadContent(960, 200, "Wall/topwall1");
+            topwall4.LoadContent(1440, 200, "Wall/topwall2");
+            topwall5.LoadContent(1920, 200, "Wall/topwall1");
+            topwall6.LoadContent(2400, 200, "Wall/topwall2");
+            botwall1.LoadContent(0, 800, "Wall/botwall1");
+            botwall2.LoadContent(480, 800, "Wall/botwall2");
+            botwall3.LoadContent(960, 800, "Wall/botwall1");
+            botwall4.LoadContent(1440, 800, "Wall/botwall2");
+            botwall5.LoadContent(1920, 800, "Wall/botwall1");
+            botwall6.LoadContent(2400, 800, "Wall/botwall2");
+            #endregion  
             #region wallList
-            wallList.Add(wall1);
-            wallList.Add(wall2);
-            wallList.Add(wall3);
-            wallList.Add(wall4);
+            wallList.Add(topwall1);
+            wallList.Add(topwall2);
+            wallList.Add(topwall3);
+            wallList.Add(topwall4);
+            wallList.Add(topwall5);
+            wallList.Add(topwall6);
+            wallList.Add(botwall1);
+            wallList.Add(botwall2);
+            wallList.Add(botwall3);
+            wallList.Add(botwall4);
+            wallList.Add(botwall5);
+            wallList.Add(botwall6);
             #endregion
             Ship.ChangeScreen += OnScreenChanged;
-            HP = new Rectangle(100, 50, Ship.getHP()*2, 50);           
-            staticHP = HP;
-            shieldwidth = staticHP.Width / 20;
-            shield = new Rectangle(100, 100, Ship.getShields() * shieldwidth, 5);
         }
         //Holds Update
         public override void Update(Camera camera)
@@ -102,8 +109,7 @@ namespace Ultimate_Sapce
                 Music.Repeat();
                 oldState = Key;
                 getKey();
-                HP.Width = Ship.getHP() * 2;
-                shield.Width = Ship.getShields() * shieldwidth;
+                
 
             if (Key.IsKeyDown(Keys.P) && !oldState.IsKeyDown(Keys.P) && !Ship.getDead())
             {
@@ -135,14 +141,10 @@ namespace Ultimate_Sapce
                 Scroll();
                 WallScroll();
                 Ship.Update(Key);
-                score++;
 
                 if (Ship.getDead())
                 {
                     Ship.Stop();
-                    if(!stop)
-                    finalscore = score;
-                    stop = true;
                 }
 
                 if (!Ship.getDead())
@@ -156,20 +158,20 @@ namespace Ultimate_Sapce
                 #endregion 
                 foreach (Entities cannon in cannonList.ToList())
                 {
-                    if (cannon.getDead())
+                    if (!cannon.getDead())
                     {
-                        cannonList.Remove(cannon);
-                    }
-                    if (!Ship.getDead())
-                        CannonFire(cannon);
-                    cannon.Update();
-                    cannon.RealPos();
-                    bool collision = Collision(cannon, Ship);
-                    if (collision)
-                    {
-                        cannon.SetDead();
-                        Ship.EnemyShipHit();
-                        score -= 300;
+
+                        if (!Ship.getDead())
+                            CannonFire(cannon);
+                        cannon.Update();
+                        cannon.RealPos();
+                        bool collision = Collision(cannon, Ship);
+                        if (collision)
+                        {
+                            cannon.SetDead();
+                            Ship.EnemyShipHit();
+                            Ship.addscore(-300);
+                        }
                     }
                    
                 }
@@ -186,7 +188,7 @@ namespace Ultimate_Sapce
                     {
                         zoomerList.Remove(zoomer);
                         Ship.EnemyShipHit();
-                        score -= 200;
+                        Ship.addscore(-200);
                     }
                 }
                 foreach (Polygons wall in wallList)
@@ -198,25 +200,28 @@ namespace Ultimate_Sapce
                         collision = Collision(Ship, wall);
                         if (collision)
                         {
-                            if (wall == wall1 || wall == wall2)
+                            if (Ship.Placement.Y < 480)
                                 Ship.Placement.Y = wall.Placement.Y + 57;
 
-                            if (wall == wall3 || wall == wall4)
+                            if (Ship.Placement.Y > 480)
                                 Ship.Placement.Y = wall.Placement.Y - 57;
 
                             Ship.Burn();
                         }
                     }
-                    foreach (Polygons cannon in cannonList)
+                    foreach (Entities cannon in cannonList)
                     {
-                        collision = Collision(cannon, wall);
-                        if (collision)
+                        if (!cannon.getDead())
                         {
-                            if (wall == wall1 || wall == wall2)
-                                cannon.Placement.Y = wall.Placement.Y + 59;
+                            collision = Collision(cannon, wall);
+                            if (collision)
+                            {
+                                if (cannon.Placement.Y < 480)
+                                    cannon.Placement.Y = wall.Placement.Y + 59;
 
-                            if (wall == wall3 || wall == wall4)
-                                cannon.Placement.Y = wall.Placement.Y - 59;
+                                if (cannon.Placement.Y > 480)
+                                    cannon.Placement.Y = wall.Placement.Y - 59;
+                            }
                         }
                     }
                 }
@@ -238,7 +243,7 @@ namespace Ultimate_Sapce
                     if (collision)
                     {
                         Ship.AsteroidHit();
-                        score -= 200;
+                        Ship.addscore(-200);
                         asteroidList.Remove(asteroid);
                     }
                 }
@@ -258,17 +263,20 @@ namespace Ultimate_Sapce
                         {
                             bulletList.Remove(bullet);
                             asteroid.addHP(-1);
-                            score += 150;
+                            Ship.addscore(150);
                         }
                     }
-                    foreach (Polygons cannon in cannonList)
+                    foreach (Entities cannon in cannonList)
                     {
-                        collision = Collision(bullet, cannon);
-                        if (collision)
+                        if (!cannon.getDead())
                         {
-                            bulletList.Remove(bullet);
-                            cannon.addHP(-1);
-                            score += 150;
+                            collision = Collision(bullet, cannon);
+                            if (collision)
+                            {
+                                bulletList.Remove(bullet);
+                                cannon.addHP(-1);
+                                Ship.addscore(150);
+                            }
                         }
                     }
                     foreach (Polygons zoomer in zoomerList)
@@ -278,7 +286,7 @@ namespace Ultimate_Sapce
                         {
                             bulletList.Remove(bullet);
                             zoomer.addHP(-1);
-                            score += 150;
+                            Ship.addscore(150);
                         }
                     }
                 }
@@ -295,7 +303,7 @@ namespace Ultimate_Sapce
                     {
                         Ship.SmallBulletHit();
                         enemyBulletList.Remove(eBullet);
-                        score -= 50;
+                        Ship.addscore(-50);
                     }
                 }
             }
@@ -308,22 +316,26 @@ namespace Ultimate_Sapce
             spriteBatch.Draw(backTex3, position3, Color.White);
             spriteBatch.Draw(backTex4, position4, Color.White);
             
-            wall1.Draw(spriteBatch);
-            wall2.Draw(spriteBatch);
-            wall3.Draw(spriteBatch);
-            wall4.Draw(spriteBatch);
+            topwall1.Draw(spriteBatch); topwall2.Draw(spriteBatch); topwall3.Draw(spriteBatch); topwall4.Draw(spriteBatch); topwall5.Draw(spriteBatch); topwall6.Draw(spriteBatch);
+            botwall1.Draw(spriteBatch); botwall2.Draw(spriteBatch); botwall3.Draw(spriteBatch); botwall4.Draw(spriteBatch); botwall5.Draw(spriteBatch); botwall6.Draw(spriteBatch);
+
             if (!Ship.getDead())
             { Ship.Draw(spriteBatch); }
             if (Ship.getDead())
             { Ship.DeathAnimation(spriteBatch); }
 
-            foreach (Entities cannon in cannonList)
+            foreach (Entities cannon in cannonList.ToList())
             {
                 if(!cannon.getDead())
                 cannon.Draw(spriteBatch);
                 if(cannon.getDead())
                 {
-                    cannon.DeathAnimation(spriteBatch);
+                    cannon.PlayDeathSound();
+                    cannon.DeathAnimation(spriteBatch); 
+                    if (cannon.getDeathAniDone())
+                    {
+                        cannonList.Remove(cannon);
+                    }
                 }
             }
             foreach (Polygons zoomer in zoomerList)
@@ -343,27 +355,7 @@ namespace Ultimate_Sapce
                 eBullet.Draw(spriteBatch);
             }
 
-            if (!Ship.getDead())
-            { spriteBatch.DrawString(font, "Score: " + score, new Vector2(1, 100), Color.Red, 0, Vector2.Zero, 1.6f, SpriteEffects.None, 0); }
-            else if (Ship.getDead())
-            {
-                spriteBatch.DrawString(font, "Score: " + finalscore, new Vector2(1, 100), Color.Red, 0, Vector2.Zero, 1.6f, SpriteEffects.None, 0);
-            }
-           
-            spriteBatch.DrawString(font, "HP", new Vector2(20, 50), Color.Red, 0, Vector2.Zero, 1.7f, SpriteEffects.None, 0);
-            spriteBatch.Draw(HPpix, HP, Color.White);
-            spriteBatch.Draw(hpBorder, staticHP, Color.White);
-            spriteBatch.Draw(hpBorder2, new Vector2(100, 55), Color.White);
-            spriteBatch.Draw(hpBorder2, new Vector2(95 + staticHP.Width, 55), Color.White);
-            spriteBatch.Draw(pixel, shield, Color.LightBlue);
-            if (pause)
-            {
-                spriteBatch.DrawString(font, "PAUSED", new Vector2(720, 540), Color.GreenYellow, 0, Vector2.Zero, 4f, SpriteEffects.None, 0);
-            }
-            if (Ship.getDead())
-            {
-                spriteBatch.DrawString(font, "YOU HAVE DIED", new Vector2(720, 540), Color.Red, 0, Vector2.Zero, 3, SpriteEffects.None, 0);
-            }
+            Ship.DrawHUD(pause, spriteBatch, font);
 
         }
 
@@ -378,10 +370,10 @@ namespace Ultimate_Sapce
             RetrieveShapes();
             Ship = CreateShip("Base Ship");
 
-            wall1 = CreateShape("wall");
-            wall2 = CreateShape("wall");
-            wall3 = CreateShape("wall");
-            wall4 = CreateShape("wall");
+            topwall1 = CreateShape("wall"); topwall2 = CreateShape("wall"); topwall3 = CreateShape("wall"); topwall4 = CreateShape("wall");
+            topwall5 = CreateShape("wall"); topwall6 = CreateShape("wall"); 
+            botwall1 = CreateShape("wall"); botwall2 = CreateShape("wall"); botwall3 = CreateShape("wall"); botwall4 = CreateShape("wall");
+            botwall5 = CreateShape("wall"); botwall6 = CreateShape("wall"); 
 
         }
         private void Scroll()
@@ -409,21 +401,42 @@ namespace Ultimate_Sapce
         }
         private void WallScroll()
         {
-            wall1.Placement.X += -5;
-            wall2.Placement.X += -5;
-            wall3.Placement.X += -5;
-            wall4.Placement.X += -5;
-
-            if (wall1.Placement.X <= -960)
+            topwall1.Placement.X += -5; topwall2.Placement.X += -5; topwall3.Placement.X += -5; topwall4.Placement.X += -5;
+            topwall5.Placement.X += -5; topwall6.Placement.X += -5; 
+            botwall1.Placement.X += -5; botwall2.Placement.X += -5; botwall3.Placement.X += -5; botwall4.Placement.X += -5;
+            botwall5.Placement.X += -5; botwall6.Placement.X += -5;
+            #region wallresets
+            if (topwall1.Placement.X <= -480)
             {
-                wall1.Placement.X = 2880;
-                wall3.Placement.X = 2880;
+                topwall1.Placement.X = 2400;
+                botwall1.Placement.X = 2400;
             }
-            if (wall2.Placement.X <= -960)
+            if (topwall2.Placement.X <= -480)
             {
-                wall2.Placement.X = 2880;
-                wall4.Placement.X = 2880;
+                topwall2.Placement.X = 2400;
+                botwall2.Placement.X = 2400;
             }
+            if (topwall3.Placement.X <= -480)
+            {
+                topwall3.Placement.X = 2400;
+                botwall3.Placement.X = 2400;
+            }
+            if (topwall4.Placement.X <= -480)
+            {
+                topwall4.Placement.X = 2400;
+                botwall4.Placement.X = 2400;
+            }
+            if (topwall5.Placement.X <= -480)
+            {
+                topwall5.Placement.X = 2400;
+                botwall5.Placement.X = 2400;
+            }
+            if (topwall6.Placement.X <= -480)
+            {
+                topwall6.Placement.X = 2400;
+                botwall6.Placement.X = 2400;
+            }
+            #endregion
             if (done)
             {
                 done = false;
@@ -432,15 +445,15 @@ namespace Ultimate_Sapce
                 wallPath1 = rand.Next(45, 195)*2;
                 wallPath2 = rand.Next(335, 485)*2;
 
-                if(wall1.Placement.Y < wallPath1)
+                if(topwall1.Placement.Y < wallPath1)
                     wallMove1 = 1;
-                else if(wall1.Placement.Y > wallPath1)
+                else if(topwall1.Placement.Y > wallPath1)
                     wallMove1 = -1;
                 else
                     wallMove1 = 0;
-                if (wall3.Placement.Y < wallPath2)
+                if (botwall1.Placement.Y < wallPath2)
                     wallMove2 = 1;
-                else if (wall3.Placement.Y > wallPath2)
+                else if (botwall1.Placement.Y > wallPath2)
                     wallMove2 = -1;
                 else
                     wallMove2 = 0;
@@ -449,21 +462,29 @@ namespace Ultimate_Sapce
             {
                 if (!done1)
                 {
-                    wall1.Placement.Y += wallMove1;
-                    wall2.Placement.Y += wallMove1;
+                    topwall1.Placement.Y += wallMove1;
+                    topwall2.Placement.Y += wallMove1;
+                    topwall3.Placement.Y += wallMove1;
+                    topwall4.Placement.Y += wallMove1;
+                    topwall5.Placement.Y += wallMove1;
+                    topwall6.Placement.Y += wallMove1;
                 }
                 if (!done2)
                 {
-                    wall3.Placement.Y += wallMove2;
-                    wall4.Placement.Y += wallMove2;
+                    botwall1.Placement.Y += wallMove2;
+                    botwall2.Placement.Y += wallMove2;
+                    botwall3.Placement.Y += wallMove2;
+                    botwall4.Placement.Y += wallMove2;
+                    botwall5.Placement.Y += wallMove2;
+                    botwall6.Placement.Y += wallMove2;
                 }
-                if (wall1.Placement.Y == wallPath1)                
+                if (topwall1.Placement.Y == wallPath1)                
                     done1 = true;
                 
-                if (wall3.Placement.Y == wallPath2)
+                if (botwall1.Placement.Y == wallPath2)
                     done2 = true;
 
-                if (wall1.Placement.Y == wallPath1 && wall3.Placement.Y == wallPath2)
+                if (topwall1.Placement.Y == wallPath1 && botwall1.Placement.Y == wallPath2)
                     done = true;
 
             }
@@ -472,7 +493,7 @@ namespace Ultimate_Sapce
         {
             if (asteroidTimer.ElapsedMilliseconds >= 600) 
             {
-                asteroidList.Add(CreatePolyInList("asteroid1", 2000, rand.Next(Convert.ToInt16(wall1.Placement.Y + 57), Convert.ToInt16(wall3.Placement.Y - 57)), 1));
+                asteroidList.Add(CreatePolyInList("asteroid1", 2000, rand.Next(Convert.ToInt16(topwall1.Placement.Y + 57), Convert.ToInt16(botwall1.Placement.Y - 57)), 1));
                 asteroidTimer.Restart();
             }
         }
@@ -481,14 +502,14 @@ namespace Ultimate_Sapce
             if (Key.IsKeyDown(Keys.Right) && !oldState.IsKeyDown(Keys.Right))
             {
                     bulletList.Add(CreateEntityInList("bullet", Convert.ToInt32(Ship.Placement.X + 40), Convert.ToInt32(Ship.Placement.Y)));
-                    score -= 100;              
+                    Ship.addscore(-85);              
             }
         }
         private void AddCannon()
         {
             if (cannonTimer.ElapsedMilliseconds >= 1500)
             {
-                cannonList.Add(CreateEntityInList("cannon", 2000, rand.Next(Convert.ToInt16(wall1.Placement.Y + 57), Convert.ToInt16(wall3.Placement.Y - 57))));
+                cannonList.Add(CreateEntityInList("cannon", 2000, rand.Next(Convert.ToInt16(topwall1.Placement.Y + 57), Convert.ToInt16(botwall1.Placement.Y - 57))));
                 cannonTimer.Restart();
             }
         }
@@ -496,7 +517,7 @@ namespace Ultimate_Sapce
         {
             if (zoomerTimer.ElapsedMilliseconds >= 2000)
             {
-                zoomerList.Add(CreateEntityInList("zoomer", 2000, rand.Next(Convert.ToInt16(wall1.Placement.Y + 57), Convert.ToInt16(wall3.Placement.Y - 57))));
+                zoomerList.Add(CreateEntityInList("zoomer", 2000, rand.Next(Convert.ToInt16(topwall1.Placement.Y + 57), Convert.ToInt16(botwall1.Placement.Y - 57))));
                 zoomerTimer.Restart();
             }
         }

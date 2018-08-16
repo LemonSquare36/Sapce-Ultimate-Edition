@@ -20,9 +20,13 @@ namespace Ultimate_Sapce
     class PlayerShip : Polygons
     {        
         int shields, gain, downtime, deadTimeGoal, deadTime;
-        bool dead = false, effectHasGone = false;
+        bool dead = false, effectHasGone = false, stop = false;
         SpriteSheet deathAnimation;
         SoundManager explosionSound;
+        Texture2D HPpix, hpBorder, hpBorder2, pixel, rockets;
+        Rectangle currentHP, staticHP, shield;
+        int score, finalscore, shieldwidth;
+        int rocketNum;
 
         public PlayerShip(List<Vector2> numbers) : base(numbers)
         {
@@ -32,13 +36,23 @@ namespace Ultimate_Sapce
             deadTimeGoal = 180;
             deadTime = 0;
             explosionSound = new SoundManager();
-
+            rocketNum = 30;
         }
         public override void LoadContent(float X, float Y, string shapeFile)
         {          
             base.LoadContent(X, Y, shapeFile);
             explosionSound.Load("ShipExplosion", true);
             deathAnimation = new SpriteSheet("PixelExplosion", 9, 9);
+            HPpix = Main.GameContent.Load<Texture2D>("Sprites/HP");
+            pixel = Main.GameContent.Load<Texture2D>("Sprites/Pixel");
+            hpBorder = Main.GameContent.Load<Texture2D>("Sprites/hpBorder");
+            hpBorder2 = Main.GameContent.Load<Texture2D>("Sprites/hpBorder2");
+            rockets = Main.GameContent.Load<Texture2D>("Sprites/rocketcounter");
+
+            currentHP = new Rectangle(100, 50, HP * 2, 50);
+            staticHP = currentHP;
+            shieldwidth = staticHP.Width / 20;
+            shield = new Rectangle(100, 100, shields * shieldwidth, 5);
         }
         public void AsteroidHit()
         {
@@ -87,9 +101,12 @@ namespace Ultimate_Sapce
         }
         public void Update(KeyboardState CurrentKeyBoardState)
         {
+            currentHP.Width = HP * 2;
+            shield.Width = shields * shieldwidth;
 
             if (!dead)
             {
+                score++;
                 RestoreShields();
                 MoveShape(CurrentKeyBoardState);
                 if (HP <= 0)
@@ -99,6 +116,11 @@ namespace Ultimate_Sapce
             }
             else if (dead)
             {
+                if (!stop)
+                {
+                    finalscore = score;
+                    stop = true;
+                }
                 DeadTimeEvent();
                 if (!effectHasGone)
                 {
@@ -145,7 +167,31 @@ namespace Ultimate_Sapce
                 ChangeScreen?.Invoke(this, EventArgs.Empty);
             }
         }
-
+        public void DrawHUD(bool pause, SpriteBatch spriteBatch, SpriteFont font)
+        {
+            if (!dead)
+            { spriteBatch.DrawString(font, "Score: " + score, new Vector2(1, 100), Color.Red, 0, Vector2.Zero, 1.6f, SpriteEffects.None, 0); }
+            else if (dead)
+            {
+                spriteBatch.DrawString(font, "Score: " + finalscore, new Vector2(1, 100), Color.Red, 0, Vector2.Zero, 1.6f, SpriteEffects.None, 0);
+            }
+            spriteBatch.Draw(rockets, new Vector2(1800,10), Color.White);
+            spriteBatch.DrawString(font, Convert.ToString(rocketNum), new Vector2(1750, 50), Color.White);
+            spriteBatch.DrawString(font, "HP", new Vector2(20, 50), Color.Red, 0, Vector2.Zero, 1.7f, SpriteEffects.None, 0);
+            spriteBatch.Draw(HPpix, currentHP, Color.White);
+            spriteBatch.Draw(hpBorder, staticHP, Color.White);
+            spriteBatch.Draw(hpBorder2, new Vector2(100, 55), Color.White);
+            spriteBatch.Draw(hpBorder2, new Vector2(95 + staticHP.Width, 55), Color.White);
+            spriteBatch.Draw(pixel, shield, Color.LightBlue);
+            if (pause)
+            {
+                spriteBatch.DrawString(font, "PAUSED", new Vector2(720, 540), Color.GreenYellow, 0, Vector2.Zero, 4f, SpriteEffects.None, 0);
+            }
+            if (dead)
+            {
+                spriteBatch.DrawString(font, "YOU HAVE DIED", new Vector2(720, 540), Color.Red, 0, Vector2.Zero, 3, SpriteEffects.None, 0);
+            }
+        }
         public void Burn()
         {
             HP--;
@@ -173,6 +219,11 @@ namespace Ultimate_Sapce
                     gain = 0;
                 }
             }
+        }
+        public int addscore(int addScore)
+        {
+            score += addScore;
+            return score;
         }
     }
 }

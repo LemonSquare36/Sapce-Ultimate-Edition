@@ -25,6 +25,7 @@ namespace Ultimate_Sapce
         private int totalFrames;
         int often = 0;
         float realLocation;
+        private bool done = false;
 
         public SpriteSheet(string tex, int rows, int col)
         {
@@ -50,8 +51,12 @@ namespace Ultimate_Sapce
 
             if (currentFrame == totalFrames)
             {
+                 done = true;
                 if (repeat)
-                currentFrame = 0;
+                {
+                    currentFrame = 0;
+                    done = false;
+                }
             }
                
         }
@@ -66,6 +71,10 @@ namespace Ultimate_Sapce
             Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
 
             spriteBatch.Draw(Texture, location, sourceRectangle, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0);
+        }
+        public bool getDone()
+        {
+            return done;
         }
 
     }

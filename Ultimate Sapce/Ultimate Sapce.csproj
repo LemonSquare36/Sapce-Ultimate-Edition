@@ -88,8 +88,13 @@
     <Content Include="Content\Sprites\hpBorder2.png" />
     <Content Include="Content\Sprites\HP.png" />
     <Content Include="Content\Sprites\Pixel.png" />
-    <Content Include="Content\Sprites\Wall.png" />
-    <Content Include="Content\Sprites\Wall2.png" />
+    <Content Include="Content\Sprites\rocketcounter.png" />
+    <Content Include="Content\Sprites\Wall\botwall1.png" />
+    <Content Include="Content\Sprites\Wall\botwall2.png" />
+    <Content Include="Content\Sprites\Wall\topwall1.png" />
+    <Content Include="Content\Sprites\Wall\topwall2.png" />
+    <Content Include="Content\Sprites\Wall\Wall.png" />
+    <Content Include="Content\Sprites\Wall\Wall2.png" />
     <Content Include="Content\Sprites\zoomer.png" />
     <Content Include="Icon.ico" />
   </ItemGroup>
